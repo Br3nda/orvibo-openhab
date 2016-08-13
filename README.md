@@ -13,7 +13,7 @@ cd /opt/openhab/configuration/scripts #or wherever your openhab is
 git clone https://github.com/Br3nda/orvibo-openhab.git
 ```
 
-## To configure an open have item
+## To configure an Openhab item
 ```
 Switch  ItemName  "Item Description"  <itemicon>  (GroupName)   { exec=">[*:/opt/openhab/configurations/scripts/orvibo/switch.py [IP] %2$s]" }
 ```
