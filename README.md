@@ -8,8 +8,10 @@ Install the python-orvibo module from https://github.com/happyleavesaoc/python-o
 
 ## To install
 
+```
 cd /opt/openhab/configuration/scripts #or wherever your openhab is
 git clone https://github.com/Br3nda/orvibo-openhab.git
+```
 
 ## To configure an open have item
 `Switch  ItemName  "Item Description"  <itemicon>  (GroupName)   { exec=">[*:/opt/openhab/configurations/scripts/orvibo/switch.py [IP] %2$s]" }`
