@@ -4,17 +4,28 @@ import sys
 
 try:
   ip = sys.argv[1]
-  action = sys.argv[2]
 except IndexError:
-  print ("IP and action required. e.g. switch.py 10.1.1.1. ON")
+  print ("IP required. e.g. switch.py 10.1.1.1. ON")
   sys.exit(1)
-  
 
-if(action == "ON"):
-  state = True
-elif (action == "OFF"):
-  state = False
+switch = S20(ip)
+
+if len(sys.argv) > 3:
+  action = sys.argv[2]  
+  if(action == "ON"):
+    state = True
+  elif (action == "OFF"):
+    state = False
+  else:
+    raise RuntimeError("Unrecognised state: " + action)
+
+  switch.on = state
+
 else:
-  raise RuntimeError("Unrecognised state: " + action)
+  if switch.on:
+    print('ON')
+  else:
+    print('OFF')
 
-S20(ip).on = state
+
+
