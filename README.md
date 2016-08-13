@@ -14,7 +14,9 @@ git clone https://github.com/Br3nda/orvibo-openhab.git
 ```
 
 ## To configure an open have item
-`Switch  ItemName  "Item Description"  <itemicon>  (GroupName)   { exec=">[*:/opt/openhab/configurations/scripts/orvibo/switch.py [IP] %2$s]" }`
+```
+Switch  ItemName  "Item Description"  <itemicon>  (GroupName)   { exec=">[*:/opt/openhab/configurations/scripts/orvibo/switch.py [IP] %2$s]" }
+```
 
 For example:
 ```
