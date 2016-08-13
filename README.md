@@ -10,7 +10,7 @@ Install the python-orvibo module from https://github.com/happyleavesaoc/python-o
 
 ```
 cd /opt/openhab/configuration/scripts #or wherever your openhab is
-git clone https://github.com/Br3nda/orvibo-openhab.git
+git clone https://github.com/Br3nda/orvibo-openhab.git orvibo
 ```
 
 ## To configure an Openhab item
