@@ -1,4 +1,10 @@
 # orvibo-openhab
+A small simple python script, for telling orvibo switches to turn on or off from openhab
+
+## Requirements
+
+Install the python-orvibo module from https://github.com/happyleavesaoc/python-orvibo
+
 
 ## To install
 
