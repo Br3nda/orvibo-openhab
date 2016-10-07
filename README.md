@@ -23,6 +23,12 @@ For example:
 Switch  Espresso_Kitchen  "Espresso machine"  <coffeemachine1>  (Kitchen)   { exec=">[*:/opt/openhab/configurations/scripts/orvibo/switch.py 10.1.1.166 %2$s]" }
 ```
 
+To also query the state of a switch:
+
+```
+Switch  Espresso_Kitchen  "Espresso machine"  <coffeemachine1>  (Kitchen)   { exec="<[/opt/openhab/configurations/scripts/orvibo/switch.py 10.1.1.166:70000:REGEX((.*?))] >[*:/opt/openhab/configurations/scripts/orvibo/switch.py 10.1.1.166 %2$s]"}
+```
+
 Note: most of the time you only specify the IP of your switch
 
 If you don't know the IP of your orvibo switch, run discover.py to see a list 
