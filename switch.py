@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 from orvibo.s20 import S20
 import sys
-import time
 import fasteners
 
 
 def change_switch_state(ip, action):
-  print("Changing switch state")
   if(action == "ON"):
     state = True
   elif (action == "OFF"):
