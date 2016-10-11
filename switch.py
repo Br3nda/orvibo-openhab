@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-from orvibo.s20 import S20
-import sys
+from orvibo.s20 import S20, discover
 import fasteners
+import argparse
 
 
 def change_switch_state(ip, action):
@@ -15,22 +15,23 @@ def change_switch_state(ip, action):
 
 
 @fasteners.interprocess_locked('/tmp/orvibo_lock_file')
-def switch():
-  if len(sys.argv) >= 3:
-    action = sys.argv[2]
+def switch(ip, action):
+  if action:
     change_switch_state(ip, action)
-
-  if S20(ip).on:
-    print('ON')
+  elif ip:
+    if S20(ip).on:
+      print('ON')
+    else:
+      print('OFF')
   else:
-    print('OFF')
-
-try:
-  ip = sys.argv[1]
-except IndexError:
-  print ("IP required. e.g. switch.py 10.1.1.1. ON")
-  sys.exit(1)
-
-switch()
+    hosts = discover()
+    for host in hosts.keys():
+      print (host)
 
 
+parser = argparse.ArgumentParser(description='Query and command an orvibo switch')
+parser.add_argument('ip', nargs='?', help='ip of switch')
+parser.add_argument('action', nargs='?', help='action')
+args = parser.parse_args()
+
+switch(ip=args.ip, action=args.action)
