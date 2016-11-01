@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from orvibo.s20 import S20, discover
+from orvibo.s20 import S20, discover, S20Exception
 import fasteners
 import argparse
 
@@ -29,9 +29,13 @@ def switch(ip, action):
       print (host)
 
 
+
 parser = argparse.ArgumentParser(description='Query and command an orvibo switch')
 parser.add_argument('ip', nargs='?', help='ip of switch')
 parser.add_argument('action', nargs='?', help='action')
 args = parser.parse_args()
 
-switch(ip=args.ip, action=args.action)
+try:
+  switch(ip=args.ip, action=args.action)
+except S20Exception as e:
+  print(e)
